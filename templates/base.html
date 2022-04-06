@@ -42,9 +42,9 @@
                 Замовлення
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="{% url 'authors' %}">Всі замовлення</a>
+              <a class="dropdown-item" href="{% url 'orders' %}">Всі замовлення</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{% url 'add_author' %}">Додати замовлення</a>
+              <a class="dropdown-item" href="{% url 'add_order' %}">Додати замовлення</a>
             </div>
         </div>
             <div class="dropdown">
@@ -52,9 +52,9 @@
                 Користувачі
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Всі користувачів</a>
+              <a class="dropdown-item" href="{% url 'users' %}">Всі користувачі</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Додати користувача</a>
+              <a class="dropdown-item" href="{% url 'add_user' %}">Додати користувача</a>
             </div>
         </div>
 </header>
