@@ -7,4 +7,5 @@ urlpatterns = [
     path('sorted_desc/', books_sorted_by_names_desc, name='books_sorted_by_names_desc'),
     path('sorted_count/', books_sorted_by_count, name='books_sorted_by_count'),
     path('<int:bookid>/', book_by),
+    path('add_book/', add_book, name='add_book'),
 ]

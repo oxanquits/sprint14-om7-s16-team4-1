@@ -8,14 +8,14 @@
 		  <div class="row g-0">
 		    <div class="col-md-10">
 		      <div class="card-body bg-dark text-white">
-		        <h5 class="card-title">{{ book.name }} </h5>
+		        <h5 class="card-title">{{ book.name }} | {% for authy in book.authors.all %} {{authy.name}} {{authy.surname}} {% endfor %}   </h5>
 
 
 		      </div>
 		    </div>
 			<div class="col-md-2 bg-dark">
 		        <div class="card-body bg-dark text-white">
-		            <a href="./{{book.pk}}/"  class="btn btn-outline-primary">Перейти до книги</a>
+		            <a href="/{{book.pk}}/"  class="btn btn-outline-primary">Перейти до книги</a>
 		        </div>
 		    </div>
 		  </div>

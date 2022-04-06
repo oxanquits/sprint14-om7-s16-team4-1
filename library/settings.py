@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'author',
     'book',
     'order',
+'crispy_forms',
 ]
 
 MIDDLEWARE = [

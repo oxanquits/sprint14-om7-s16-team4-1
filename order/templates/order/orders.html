@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container px-4 py-5" id="custom-cards">
-    <h2 class="pb-2 border-bottom">{{ author.surname }} {{ author.name }} {{ author.patronymic }}</h2>
-	{% for book in books %}
+    <h2 class="pb-2 border-bottom">Замовленя</h2>
+	{% for order in orders %}
 		<div class="container py-3">
 		<div class="card mb-3 bg-dark text-white" >
 		  <div class="row g-0">
-		    <div class="col-md-10">
+		    <div class="col-md-9">
 		      <div class="card-body bg-dark text-white">
-		        <h5 class="card-title">{{ book.name }} </h5>
+		        <h5 class="card-title">{{ order.id }} |||| </h5>
+
+
 		      </div>
 		    </div>
-			<div class="col-md-2 bg-dark">
+			<div class="col-md-3 bg-dark">
 		        <div class="card-body bg-dark text-white">
-		            <a href="/{{book.pk}}/"  class="btn btn-outline-primary">Перейти до книги</a>
+		            <a href="./{{order.pk}}/"  class="btn btn-outline-primary">Перейти до замовлення</a>
 		        </div>
 		    </div>
 		  </div>
