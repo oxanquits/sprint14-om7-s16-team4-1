@@ -37,11 +37,26 @@
               <a class="dropdown-item" href="{% url 'add_author' %}">Додати автора</a>
             </div>
         </div>
-      <ul class="nav nav-pills">
-		<li class="nav-item"><a href="{% url 'authors' %}" class="nav-link">Автори</a></li>
-		<li class="nav-item"><a href="{% url 'orders' %}" class="nav-link">Замовлення</a></li>
-        <li class="nav-item"><a href="#" class="nav-link active">Користувачі </a></li>
-      </ul>
+        <div class="dropdown">
+            <button class="btn text-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Замовлення
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{% url 'authors' %}">Всі замовлення</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'add_author' %}">Додати замовлення</a>
+            </div>
+        </div>
+            <div class="dropdown">
+            <button class="btn text-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Користувачі
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Всі користувачів</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Додати користувача</a>
+            </div>
+        </div>
 </header>
 
 
