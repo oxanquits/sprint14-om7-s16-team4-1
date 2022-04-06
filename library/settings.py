@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'author',
     'book',
     'order',
-'crispy_forms',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -60,8 +60,7 @@ ROOT_URLCONF = 'library.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,6 +128,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 try:
-    from .local_settings import  *
+    from .local_settings import *
 except ImportError:
     pass
