@@ -46,6 +46,7 @@ def get_authors(authorslist):
     return ', '.join(authors)
 
 def add_book(request):
+    print('CREATE')
     if request.method == 'POST':
         form = AddBookPostForm(request.POST)
         if form.is_valid():
@@ -54,3 +55,35 @@ def add_book(request):
     else:
         form = AddBookPostForm()
     return render(request, 'book/add_book.html', {'form':form})
+
+def update_book(request, bookid):
+    print('UPDATE')
+    book = Book.objects.get(pk=bookid)
+    form = AddBookPostForm(instance=book)
+    if request.method == 'POST':
+        print('POST')
+        form = AddBookPostForm(request.POST, instance=book)
+        if form.is_valid():
+            print('VALID')
+            form.save()
+            return redirect('books')
+    return render(request, 'book/add_book.html', {'form':form})
+
+#def add_book(request, bookid = 0):
+#
+#    if request.method == 'GET':
+#        if bookid == 0:
+#            form = AddBookPostForm()
+#        else:
+#            book = Book.objects.get(pk=bookid)
+#            form = AddBookPostForm(instance=book)
+#        return render(request, 'book/add_book.html', {'form':form})
+#    else:
+#        if bookid == 0:
+#            form = AddBookPostForm(request.POST)
+#        else:
+#            book = Book.objects.get(pk=bookid)
+#            form = AddBookPostForm(request.POST, instance=book)
+#        if form.is_valid():
+#            form.save()
+#        return redirect('books')
