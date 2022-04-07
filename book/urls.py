@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:bookid>/', book_by),
     path('add_book/', add_book, name='add_book'),
     path('update_book/<str:bookid>/', update_book, name='update_book'),
+    path('del_book/<str:bookid>/', del_book, name='del_book'),
 ]
