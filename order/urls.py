@@ -6,4 +6,5 @@ urlpatterns = [
     path('add_order/', add_order, name='add_order'),
     path('<int:orderid>/', order_by),
     path('update_order/<str:orderid>/', update_order, name='update_order'),
+    path('delete_order/<str:orderid>/', update_order, name='delete_order'),
 ]
