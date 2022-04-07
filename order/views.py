@@ -47,3 +47,10 @@ def update_order(request, orderid):
             form.save()
             return redirect('orders')
     return render(request, 'order/add_order.html', {'form': form})
+
+
+def delete_order(request, orderid):
+    print('DELETE')
+    if request.method == 'POST':
+        Order.objects.filter(id=orderid).delete()
+    return render(request, 'order/orders.html')
