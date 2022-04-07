@@ -33,3 +33,10 @@ def add_author(request):
     else:
         form = AddAuthorPostForm()
     return render(request, 'author/add_author.html', {'form': form})
+
+
+def delete_author(request, authorid):
+    print('DELETE')
+    author = Author.objects.get(pk=authorid)
+    author.delete()
+    return redirect('authors')

@@ -5,7 +5,10 @@ from .forms import *
 
 
 def users(request):
-    return render(request, 'users.html')
+    context = {
+        'users': CustomUser.objects.all(),
+    }
+    return render(request, 'users.html', context=context)
 
 
 def add_user(request):
@@ -17,3 +20,10 @@ def add_user(request):
     else:
         form = AddUserPostForm()
     return render(request, 'add_user.html', {'form': form})
+
+
+def delete_user(request, userid):
+    print('DELETE')
+    user = CustomUser.objects.get(pk=userid)
+    user.delete()
+    return redirect('users')
