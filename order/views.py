@@ -51,6 +51,6 @@ def update_order(request, orderid):
 
 def delete_order(request, orderid):
     print('DELETE')
-    if request.method == 'POST':
-        Order.objects.filter(id=orderid).delete()
+    order = Order.objects.get(pk=orderid)
+    order.delete()
     return render(request, 'order/orders.html')
