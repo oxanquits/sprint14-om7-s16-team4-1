@@ -1,9 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-
 from .forms import *
 from .models import Book, Author
+
 # Create your views here.
+
+
 def books(request):
     context = {
         'books': Book.objects.all(),
@@ -12,12 +14,14 @@ def books(request):
     }
     return render(request, 'book/books.html', context)
 
+
 def books_sorted_by_names(request):
     context = {
         'books': Book.objects.all().order_by('name'),
         'title': 'Книги, сортування за назвою А - Я'
     }
     return render(request, 'book/books.html', context)
+
 
 def books_sorted_by_names_desc(request):
     context = {
@@ -26,12 +30,14 @@ def books_sorted_by_names_desc(request):
     }
     return render(request, 'book/books.html', context)
 
+
 def books_sorted_by_count(request):
     context = {
         'books': Book.objects.all().order_by('count'),
         'title': 'Книги, сортування за кількістю'
     }
     return render(request, 'book/books.html', context)
+
 
 def book_by(request, bookid):
 
@@ -41,9 +47,12 @@ def book_by(request, bookid):
     }
     return render(request, 'book/book.html', context)
 
+
 def get_authors(authorslist):
-    authors = [f'{author.surname} {author.name} {author.patronymic}' for author in authorslist]
+    authors = [
+        f'{author.surname} {author.name} {author.patronymic}' for author in authorslist]
     return ', '.join(authors)
+
 
 def add_book(request):
     print('CREATE')
@@ -87,3 +96,4 @@ def update_book(request, bookid):
 #        if form.is_valid():
 #            form.save()
 #        return redirect('books')
+#   return render(request, 'book/add_book.html', {'form': form})
