@@ -53,4 +53,4 @@ def delete_order(request, orderid):
     print('DELETE')
     order = Order.objects.get(pk=orderid)
     order.delete()
-    return render(request, 'order/orders.html')
+    return redirect('orders')
