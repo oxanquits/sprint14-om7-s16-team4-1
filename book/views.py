@@ -63,7 +63,8 @@ def add_book(request):
             return redirect('books')
     else:
         form = AddBookPostForm()
-    return render(request, 'book/add_book.html', {'form':form})
+    return render(request, 'book/add_book.html', {'form': form})
+
 
 def update_book(request, bookid):
     print('UPDATE')
@@ -76,9 +77,9 @@ def update_book(request, bookid):
             print('VALID')
             form.save()
             return redirect('books')
-    return render(request, 'book/add_book.html', {'form':form})
+    return render(request, 'book/add_book.html', {'form': form})
 
-#def add_book(request, bookid = 0):
+# def add_book(request, bookid = 0):
 #
 #    if request.method == 'GET':
 #        if bookid == 0:
