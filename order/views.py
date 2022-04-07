@@ -16,6 +16,14 @@ def orders(request):
     return render(request, 'order/orders.html', context)
 
 
+def order_by(request, orderid):
+
+    context = {
+        'order': Order.get_by_id(orderid),
+    }
+    return render(request, 'order/order.html', context)
+
+
 def add_order(request):
     if request.method == 'POST':
         form = AddOrderPostForm(request.POST)
@@ -24,4 +32,18 @@ def add_order(request):
             return redirect('orders')
     else:
         form = AddOrderPostForm()
+    return render(request, 'order/add_order.html', {'form': form})
+
+
+def update_order(request, orderid):
+    print('UPDATE')
+    order = Order.objects.get(pk=orderid)
+    form = AddOrderPostForm(instance=order)
+    if request.method == 'POST':
+        print('POST')
+        form = AddOrderPostForm(request.POST, instance=order)
+        if form.is_valid():
+            print('VALID')
+            form.save()
+            return redirect('orders')
     return render(request, 'order/add_order.html', {'form': form})
