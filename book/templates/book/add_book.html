@@ -6,10 +6,10 @@
 		  <div class="row g-0">
 		    <div class="col-md-10">
 		      <div class="card-body bg-grey text-white">
-                  <form action="{% url 'add_book' %}" method="post">
+                  <form action="" method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit button" class="btn btn-outline-primary"> Додати книгу </button>
+                    <button type="submit button" class="btn btn-outline-primary"> Зберегти </button>
                   </form>
 		      </div>
 		    </div>
