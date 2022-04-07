@@ -6,9 +6,11 @@
 		  <div class="row g-0">
 		    <div class="col-md-12">
 		      <div class="card-body bg-dark text-white">
-		        <h1 class="card-title">created_at: {{ order.created_at }} </h1>
-		        <h3 class="card-title">end_at: {{ order.end_at }} </h3>
-                <h3 class="card-title">plated_end_at: {{ order.plated_end_at }} </h3>
+		        <h1 class="card-title">Створено: {{ order.created_at }} </h1>
+                <h3 class="card-title">Книга: {{ order.book.name }} </h3>
+                <h3 class="card-title">Автор: {{ order.author.name }} </h3>
+		        <h3 class="card-title">Повернено: {{ order.end_at }} </h3>
+                <h3 class="card-title">Плановане повернення: {{ order.plated_end_at }} </h3>
 		      </div>
 				<div class="card-body bg-dark text-white">
 		            <a href="{%url 'update_order' order.id  %}"  class="btn btn-outline-danger">Редагувати замовлення</a>
