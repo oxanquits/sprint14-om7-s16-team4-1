@@ -2,8 +2,10 @@ from django import forms
 from .models import *
 
 class AddBookPostForm(forms.ModelForm):
-    #def __init__(self, *args, **kwargs):
-    #    super().__init__(self, *args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['authors'].label_from_instance = lambda obj : f'{obj.surname} {obj.name} {obj.patronymic}'
 
 
     class Meta:
