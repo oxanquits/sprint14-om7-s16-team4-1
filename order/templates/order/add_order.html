@@ -1,21 +1,22 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
 {% block content %}
-<div class="container py-3">
-		<div class="card mb-3 bg-dark text-white" >
-		  <div class="row g-0">
-		    <div class="col-md-10">
-		      <div class="card-body bg-grey text-white">
-                  <form action="" method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit button" class="btn btn-outline-primary"> Зберегти </button>
-					<button type="submit button" name="delete" class="btn btn-outline-primary"> Видалити </button>
-                  </form>
-		      </div>
-		    </div>
+<div class="container ">
+  <div class="row g-0">
+	  <div class="col"></div>
+	  <div class="col">
+		  <div class="card bg-dark text-white" >
+			  <div class="card-body bg-grey text-white">
+				  <form action="" method="POST">
+					  {% csrf_token %}
+					  {{ form.as_p }}
+					  <button type="submit button" class="btn btn-outline-primary"> Зберегти </button>
+				  </form>
+			  </div>
 		  </div>
-		</div></div>
+	  </div>
+			<div class="col"></div>
+		  </div>
+
 
 
 {% endblock %}
