@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'book',
     'order',
     'crispy_forms',
+    'api',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
