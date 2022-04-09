@@ -1,3 +1,4 @@
+from author.models import Author
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from book.models import Book
@@ -21,6 +22,12 @@ class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         exclude = ('last_login', 'password')
+
+
+class AuthorDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Author
+        fields = '__all__'
 
 
 class BookListSerializer(serializers.ModelSerializer):
