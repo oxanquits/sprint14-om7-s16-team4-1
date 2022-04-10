@@ -2,9 +2,8 @@ from django.urls import path
 from . import views
 
 book_api_methods = {
-    'get': 'retrieve', 'post': 'create',
-    'put': 'update', 'patch': 'partial_update',
-    'delete': 'destroy'
+    'get': 'retrieve', 'put': 'update',
+    'patch': 'partial_update', 'delete': 'destroy'
 }
 
 urlpatterns = [
@@ -18,6 +17,7 @@ urlpatterns = [
     path('author/<int:id>/', views.RetrieveUpdateDestroyAuthorView.as_view()),
 
     path('books/', views.BookViewSet.as_view({'get': 'list'}), name='book_list_api'),
+    path('create_book/', views.BookViewSet.as_view({'post': 'create'}), name='create_book_api'),
     path('book/<int:id>/', views.BookViewSet.as_view(book_api_methods), name='retrieve_book_api'),
 
 ]

@@ -1,4 +1,3 @@
-from .serializers import AuthorDetailSerializer
 from django.contrib.auth import get_user_model
 from rest_framework import generics
 
@@ -6,7 +5,6 @@ from rest_framework.viewsets import ModelViewSet
 from . import serializers
 from book.models import Book
 
-from .serializers import UserListSerializer, CreateUserSerializer, UserDetailSerializer
 from author.models import Author
 
 User = get_user_model()
@@ -29,17 +27,17 @@ class RetrieveUpdateDestroyUserView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class AuthorCreateView(generics.CreateAPIView):
-    serializer_class = AuthorDetailSerializer
+    serializer_class = serializers.AuthorDetailSerializer
 
 
 class AuthorListView(generics.ListAPIView):
-    serializer_class = AuthorDetailSerializer
+    serializer_class = serializers.AuthorDetailSerializer
     queryset = Author.objects.all()
 
 
 class RetrieveUpdateDestroyAuthorView(generics.RetrieveUpdateDestroyAPIView):
     lookup_url_kwarg = 'id'
-    serializer_class = AuthorDetailSerializer
+    serializer_class = serializers.AuthorDetailSerializer
     queryset = Author.objects.all()
 
 
