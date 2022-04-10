@@ -9,5 +9,8 @@ urlpatterns = [
     path('authors/', views.AuthorListView.as_view()),
     path('create_author/', views.AuthorCreateView.as_view()),
     path('author/<int:id>/', views.RetrieveUpdateDestroyAuthorView.as_view()),
+    path('orders/', views.OrderListView.as_view()),
+    path('create_order/', views.OrderCreateView.as_view()),
+    path('order/<int:id>/', views.RetrieveUpdateDestroyOrderrView.as_view()),
 
 ]
