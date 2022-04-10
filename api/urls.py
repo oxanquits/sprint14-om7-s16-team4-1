@@ -16,8 +16,14 @@ urlpatterns = [
     path('create_author/', views.AuthorCreateView.as_view()),
     path('author/<int:id>/', views.RetrieveUpdateDestroyAuthorView.as_view()),
 
-    path('books/', views.BookViewSet.as_view({'get': 'list'}), name='book_list_api'),
-    path('create_book/', views.BookViewSet.as_view({'post': 'create'}), name='create_book_api'),
-    path('book/<int:id>/', views.BookViewSet.as_view(book_api_methods), name='retrieve_book_api'),
+    path('orders/', views.OrderListView.as_view()),
+    path('create_order/', views.OrderCreateView.as_view()),
+    path('order/<int:id>/', views.RetrieveUpdateDestroyOrderrView.as_view()),
 
+    path(
+        'books/', views.BookViewSet.as_view({'get': 'list'}), name='book_list_api'),
+    path('create_book/',
+         views.BookViewSet.as_view({'post': 'create'}), name='create_book_api'),
+    path('book/<int:id>/', views.BookViewSet.as_view(book_api_methods),
+         name='retrieve_book_api'),
 ]
