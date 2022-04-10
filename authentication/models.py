@@ -8,6 +8,8 @@ ROLE_CHOICES = (
     (0, 'visitor'),
     (1, 'admin'),
 )
+
+
 class BaseUserManager(BaseUserManager):
     """Manager fro Custom User"""
 
@@ -34,6 +36,7 @@ class BaseUserManager(BaseUserManager):
         user.is_admin = True
         user.save(using=self._db)
         return user
+
 
 class CustomUser(AbstractBaseUser):
     """
@@ -71,7 +74,6 @@ class CustomUser(AbstractBaseUser):
     role = models.IntegerField(default=0, choices=ROLE_CHOICES)
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
-
 
     USERNAME_FIELD = 'email'
     objects = BaseUserManager()
