@@ -2,6 +2,7 @@ from author.models import Author
 from order.models import Order
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
+from book.models import Book
 
 User = get_user_model()
 
@@ -33,4 +34,16 @@ class AuthorDetailSerializer(serializers.ModelSerializer):
 class OrderDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
+        fields = '__all__'
+
+
+class BookListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ('name', 'authors')
+
+
+class BookDetailedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
         fields = '__all__'
