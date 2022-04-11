@@ -8,10 +8,10 @@ import datetime
 
 class Order(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     end_at = models.DateTimeField(null=True, blank=True)
-    plated_end_at = models.DateTimeField()
+    plated_end_at = models.DateTimeField(null=True)
 
     def __str__(self):
         """
